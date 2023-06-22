@@ -1,0 +1,45 @@
+@use "../../../styles/variables" as variables;
+@use "../../../styles/colors" as colors;
+
+.breadcrumb {
+    padding: (variables.$paddingInline * 2) variables.$paddingBlock;
+    border-bottom: 1px solid colors.$divider;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .divider {
+        width: 1px;
+        background-color: colors.$divider;
+        height: 24px;
+        border-radius: 50%;
+    }
+
+    .grid {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .information {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .back {
+        width: 39px;
+        height: 24px;
+    }
+
+    .stack {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+    .action {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+}

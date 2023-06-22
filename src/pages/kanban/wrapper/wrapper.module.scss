@@ -1,0 +1,119 @@
+@use "../../../styles/variables" as variables;
+@use "../../../styles/colors" as colors;
+
+.contentWrapper {
+    padding: (variables.$paddingInline * 2) variables.$paddingBlock;
+    height: 100%;
+    position: relative;
+    $borderColor: rgba(
+        $color: #001747,
+        $alpha: 0.07,
+    );
+    .tasksWrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        height: 100%;
+        .task {
+            border-radius: 8px;
+            background-color: #fff;
+            border: 1px solid $borderColor;
+            padding: 21.5px 24px;
+            max-height: 100%;
+            user-select: none;
+            .taskLogs {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                height: calc(100vh - 286px);
+                overflow-y: scroll;
+                &::-webkit-scrollbar {
+                    width: 0px;
+                }
+                .log {
+                    position: relative;
+                    padding: 12px;
+                    border: 1px solid $borderColor;
+                    border-radius: 4px;
+                    .action {   
+                        margin-top: 12px;
+                        display: flex;
+                        align-items: center;
+                        .taskType {
+                            display: flex;
+                            align-items: center;
+                            gap: 4px;
+                            .taskTypeIcon {
+                                width: 16px;
+                                height: 16px;
+                                border-radius: 4px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                &.taskColor {
+                                    background-color: colors.$yellow;
+                                }
+
+                                &.epicColor {
+                                    background-color: colors.$orange;
+                                }
+                            }
+                        }
+                        .taskAuthor {
+                            $size: 24px;
+                            margin-left: auto;
+                            display: flex;
+                            align-items: center;
+                            gap: 12px;
+                            height: $size;
+                            .author {
+                                border-radius: 50%;
+                                width: $size;
+                                height: $size;
+                            }
+                            .level {
+                                width: 16px;
+                                height: 16px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            }
+                            .hours {
+                                border: 1px solid $borderColor;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: $size;
+                                height: $size;
+                                border-radius: 4px;
+                            }
+                        }
+                    }
+                }
+            }
+            .taskHead {
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid colors.$border;
+                margin-bottom: 16px;
+                padding-bottom: 13.5px;
+                .taskLogo {
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 50%;
+                    margin-right: 8px;
+                }
+                .taskCount {
+                    padding: 4px;
+                    background-color: #{colors.$blue + "1a"};
+                    border-radius: 4px;
+                    min-width: 17px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-left: auto;
+                }
+            }
+        }
+    }
+}

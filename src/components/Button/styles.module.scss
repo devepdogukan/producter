@@ -1,0 +1,67 @@
+@use "../../styles/colors.scss" as colors;
+
+:root {
+    --bg-color: #{colors.$gray + "12"};
+    --text-color: #{colors.$gray};
+}
+
+.gray {
+    --bg-color: #{colors.$gray + "1a"};
+    --text-color: #{colors.$gray};
+}
+
+.lightBlue {
+    --bg-color: #{colors.$blue + "1a"};
+    --text-color: #{colors.$blue};
+}
+
+.blue {
+    --bg-color: #{colors.$blue};
+    --text-color: #{colors.$blue};
+}
+
+.button {
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:not(.contained) {
+        &,
+        p,
+        svg,
+        path {
+            color: var(--text-color);
+            stroke: var(--text-color);
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--bg-color);
+        p,
+        svg,
+        path {
+            color: white;
+            stroke: white;
+        }
+    }
+}
+
+.outlined {
+    border: 1px solid var(--bg-color);
+}
+
+.contained {
+    border: 0px;
+    background-color: var(--bg-color);
+    &:hover {
+        opacity: 0.8;
+        p,
+        svg,
+        path {
+            color: var(--text-color) !important;
+            stroke: var(--text-color) !important;
+        }
+    }
+}

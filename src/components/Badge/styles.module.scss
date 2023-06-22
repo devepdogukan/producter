@@ -1,0 +1,49 @@
+@use "../../styles/colors.scss" as colors;
+
+:root {
+    --badge-bg-color: #{colors.$primary};
+}
+
+.primary {
+    --badge-bg-color: #{colors.$primary};
+}
+.darkPrimary {
+    --badge-bg-color: #{colors.$darkPrimary};
+}
+.gray {
+    --badge-bg-color: #{colors.$gray};
+}
+.blue {
+    --badge-bg-color: #{colors.$blue};
+}
+.yellow {
+    --badge-bg-color: #{colors.$yellow};
+}
+.red {
+    --badge-bg-color: #{colors.$red};
+}
+.orange {
+    --badge-bg-color: #{colors.$orange};
+}
+
+.badge {
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    justify-content: center;
+
+    &.contained {
+        background-color: var(--badge-bg-color);
+    }
+
+    &.text {
+        background-color: transparent !important;
+        p,
+        svg,
+        path {
+            color: var(--badge-bg-color) !important;
+            stroke: var(--badge-bg-color) !important;
+        }
+    }
+}

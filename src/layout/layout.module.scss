@@ -1,0 +1,198 @@
+@use "../styles/variables" as variables;
+@use "../styles/colors.scss" as colors;
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 8px;
+        background: transparent;
+        border-radius: 4px;
+
+        gap: 8px;
+
+        &.active,
+        &:hover {
+            transition: all 300ms;
+            cursor: pointer;
+            background: colors.$blue;
+            &,
+            svg,
+            svg path,
+            p {
+                color: white;
+                stroke: white;
+            }
+        }
+        &.active {
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: #ffffff;
+                border-radius: 1.5px;
+                width: 5px;
+                height: 5px;
+                right: 8px;
+            }
+        }
+    }
+}
+
+.appLayout {
+    width: 100%;
+    height: 100vh;
+
+    .appContentWrapper {
+        max-height: calc(100% - (#{variables.$headerHeight} + 1px));
+        height: -webkit-fill-available;
+        display: flex;
+        align-items: flex-start;
+
+        .sidebar {
+            min-width: variables.$layoutWidth;
+            max-width: variables.$layoutWidth;
+            padding: variables.$paddingBlock variables.$paddingInline;
+            box-sizing: border-box;
+            border-right: 1px solid colors.$border;
+            border-top: 1px solid colors.$border;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            .footer {
+                margin-top: auto;
+            }
+
+            .user {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 6px;
+                margin: 8px 0px;
+                padding: 16px 0px;
+                border-top: 1px solid colors.$border;
+                border-bottom: 1px solid colors.$border;
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                }
+            }
+            .company {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 6px;
+                margin-top: 16px;
+                .avatar {
+                    background: colors.$lightYellow;
+                    border-radius: 6px;
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #ffffff;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .content {
+            position: relative;
+            box-sizing: border-box;
+            width: calc(100% - #{variables.$layoutWidth});
+            height: 100%;
+            background-color: colors.$background;
+            & > div {
+                bottom: 0;
+                left: 0;
+                overflow: hidden;
+                position: absolute;
+                right: 0;
+                top: 0;
+                max-height: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+.appLayoutHeader {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: variables.$headerHeight;
+
+    border-bottom: 1px solid colors.$border;
+    .logo {
+        min-width: variables.$layoutWidth;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        $logoHeight: 32px;
+        img {
+            width: 153px;
+            height: $logoHeight;
+            margin-inline: auto;
+        }
+        .divider {
+            margin-left: auto;
+            height: $logoHeight;
+            width: 1px;
+            background-color: colors.$border;
+        }
+    }
+    .wrapper {
+        padding: variables.$paddingInline variables.$paddingBlock;
+        box-sizing: border-box;
+        width: calc(100% - #{variables.$layoutWidth});
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            .search {
+                width: 200px;
+                background: #{colors.$gray + "12"};
+                border-radius: 4px;
+                position: relative;
+                height: 32px;
+                overflow: hidden;
+                & > svg {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 8px;
+                }
+                .searchInput {
+                    box-sizing: border-box;
+                    height: 100%;
+                    margin-left: 28px;
+                    width: calc(100% - 40px);
+                    &,
+                    &::placeholder {
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 15px;
+                        color: colors.$gray;
+                    }
+                }
+            }
+        }
+    }
+}

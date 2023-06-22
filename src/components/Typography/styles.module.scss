@@ -1,0 +1,29 @@
+@use "../../styles/colors.scss" as colors;
+
+.typography {
+    font-style: normal;
+    font-size: 13px;
+    line-height: 16px;
+    color: colors.$primary;
+
+    &.medium {
+        font-size: 16px;
+        line-height: 19px;
+    }
+    &.large {
+        font-size: 19px;
+        line-height: 21px;
+    }
+}
+
+.darkPrimary {
+    color: colors.$darkPrimary;
+}
+
+.blue {
+    color: colors.$blue;
+}
+
+.gray {
+    color: colors.$gray;
+}
